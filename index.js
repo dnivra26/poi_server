@@ -34,7 +34,7 @@ app.post('/notify', upload.single('screen'), function (req, res, next) {
     twilioClient.messages.create({
         body: `Intruder detected. Check here ${req.file.location}`,
         to: process.env.twilio_to,
-        from: process.env.twilio_to
+        from: process.env.twilio_from
     })
     .then(
         (message) => console.log(message.sid)
